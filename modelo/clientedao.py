@@ -1,94 +1,93 @@
-from modelo.cliente import Cliente
-from modelo.conexionbd import ConexionBd  # Asegúrate de tener esta clase definida
+from modelo.conexionbd import ConexionBD 
+from modelo.cliente import Cliente # Necesitarás crear este archivo
+
 
 class ClienteDAO:
 
+
     def __init__(self):
-        self.bd = ConexionBd()
+        # Asumiendo que la clase se llama 'ConexionBD' y fue corregida
+        self.bd = ConexionBD() 
         self.cliente = Cliente()
 
     def listarClientes(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_ListarClientes]"
+        # Uso de SELECT para llamar a la función de PostgreSQL
+        sp = "SELECT * FROM sp_listar_clientes()" 
         cursor.execute(sp)
         filas = cursor.fetchall()
 
-        for fila in filas:
-            print(fila)
-
         self.bd.cerrarConexionBD()
+        return filas
 
-    def guardarCliente(self):
+    def insertarCliente(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_InsertarCliente] @nombre=?, @apellido=?, @correo_electronico=?, @telefono=?, @direccion=?"
-        parametros = (
-            self.cliente.nombre,
-            self.cliente.apellido,
-            self.cliente.correo_electronico,
-            self.cliente.telefono,
-            self.cliente.direccion
-        )
+        # Uso de CALL (4 parámetros: dni_rfc, nombre, direccion, telefono)
+        sp = "CALL sp_insertar_cliente(?, ?, ?, ?)"
+        parametros = (self.cliente.dni_rfc, self.cliente.nombre, self.cliente.direccion, self.cliente.telefono)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
 
         self.bd.cerrarConexionBD()
 
     def actualizarCliente(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_ActualizarCliente] @id_cliente=?, @nombre=?, @apellido=?, @correo_electronico=?, @telefono=?, @direccion=?"
-        parametros = (
-            self.cliente.id_cliente,
-            self.cliente.nombre,
-            self.cliente.apellido,
-            self.cliente.correo_electronico,
-            self.cliente.telefono,
-            self.cliente.direccion
-        )
+        # Uso de CALL (5 parámetros: idCliente, dni_rfc, nombre, direccion, telefono)
+        sp = "CALL sp_actualizar_cliente(?, ?, ?, ?, ?)"
+        parametros = (self.cliente.idCliente, self.cliente.dni_rfc, self.cliente.nombre, self.cliente.direccion, self.cliente.telefono)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
 
         self.bd.cerrarConexionBD()
 
     def eliminarCliente(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_EliminarCliente] @id_cliente=?"
-        parametros = (self.cliente.id_cliente,)
+        # Uso de CALL (1 parámetro: idCliente)
+        sp = "CALL sp_eliminar_cliente(?)"
+        parametros = (self.cliente.idCliente,) 
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
 
         self.bd.cerrarConexionBD()
 
-    def consultarClientePorID(self):
+    
+    def contarClientes(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_ConsultarClientePorID] @id_cliente=?"
-        parametros = (self.cliente.id_cliente,)
-        cursor.execute(sp, parametros)
+        # Uso de SELECT para la función que devuelve el conteo
+        sp = "SELECT sp_contar_clientes()"
+        cursor.execute(sp)
         resultado = cursor.fetchone()
 
-        if resultado:
-            print(resultado)
+        print(f"Total de clientes: {resultado[0]}")
 
         self.bd.cerrarConexionBD()
+        return resultado[0] # Se retorna el resultado para consistencia
 
-    def buscarClientes(self, termino):
+    def buscarClientes(self):
+
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_BuscarClientes] @termino=?"
-        cursor.execute(sp, (termino,))
+        # Uso de SELECT para la función que devuelve la tabla (se busca por dni_rfc)
+        sp = "SELECT * FROM sp_buscar_cliente(?)"
+        param = [self.cliente.dni_rfc] 
+        cursor.execute(sp, param)
         filas = cursor.fetchall()
 
-        for fila in filas:
-            print(fila)
-
         self.bd.cerrarConexionBD()
+        return filas

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
-    <height>613</height>
+    <width>947</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -620,7 +620,7 @@ QToolTip {
 }</string>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_agregar">
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -632,7 +632,7 @@ QToolTip {
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="text">
-                   <string>SKU</string>
+                   <string>RFC</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -658,7 +658,7 @@ QToolTip {
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_4">
                   <property name="text">
-                   <string>Descripcion</string>
+                   <string>Nombre</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -666,12 +666,25 @@ QToolTip {
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLineEdit" name="descripcion_agregar"/>
+                 <widget class="QLineEdit" name="descripcion_agregar">
+                  <property name="minimumSize">
+                   <size>
+                    <width>400</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>400</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_5">
                   <property name="text">
-                   <string>Existrencia</string>
+                   <string>Dirección</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -682,7 +695,7 @@ QToolTip {
                  <widget class="QLineEdit" name="existencia_agregar">
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>400</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -697,7 +710,7 @@ QToolTip {
                 <item row="3" column="0">
                  <widget class="QLabel" name="label_6">
                   <property name="text">
-                   <string>Precio</string>
+                   <string>Telefono</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -748,7 +761,7 @@ QToolTip {
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_15">
                   <property name="text">
-                   <string>Existrencia</string>
+                   <string>Dirección</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -759,13 +772,13 @@ QToolTip {
                  <widget class="QLineEdit" name="existencia_buscar">
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>500</width>
                     <height>0</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>500</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -774,7 +787,7 @@ QToolTip {
                 <item row="3" column="0">
                  <widget class="QLabel" name="label_18">
                   <property name="text">
-                   <string>Precio</string>
+                   <string>Telefono</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -784,7 +797,7 @@ QToolTip {
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_17">
                   <property name="text">
-                   <string>Descripcion</string>
+                   <string>Nombre</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -795,7 +808,7 @@ QToolTip {
                  <widget class="QLineEdit" name="precio_buscar">
                   <property name="minimumSize">
                    <size>
-                    <width>80</width>
+                    <width>200</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -832,7 +845,7 @@ QToolTip {
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="text">
-                   <string>SKU</string>
+                   <string>RFC</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -884,21 +897,18 @@ QToolTip {
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_9">
                   <property name="text">
-                   <string>Existrencia</string>
+                   <string>Dirección</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QLineEdit" name="deescripcion_actualizar"/>
-                </item>
                 <item row="2" column="1">
                  <widget class="QLineEdit" name="existencia_actualizar">
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>500</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -914,7 +924,7 @@ QToolTip {
                  <widget class="QLineEdit" name="sku_actualizar">
                   <property name="minimumSize">
                    <size>
-                    <width>150</width>
+                    <width>200</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -932,7 +942,7 @@ QToolTip {
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="text">
-                   <string>SKU</string>
+                   <string>RFC</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -942,7 +952,7 @@ QToolTip {
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_8">
                   <property name="text">
-                   <string>Descripcion</string>
+                   <string>Nombre</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -952,7 +962,7 @@ QToolTip {
                 <item row="3" column="0">
                  <widget class="QLabel" name="label_10">
                   <property name="text">
-                   <string>Precio</string>
+                   <string>Telefono</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -963,13 +973,13 @@ QToolTip {
                  <widget class="QLineEdit" name="precio_actualizar">
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>200</width>
                     <height>0</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>80</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -988,6 +998,16 @@ QToolTip {
                    <size>
                     <width>32</width>
                     <height>32</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLineEdit" name="descripcion_actualizar">
+                  <property name="minimumSize">
+                   <size>
+                    <width>400</width>
+                    <height>0</height>
                    </size>
                   </property>
                  </widget>
@@ -1035,164 +1055,98 @@ QToolTip {
               <item>
                <widget class="QTableWidget" name="tabla_productos">
                 <property name="styleSheet">
-                 <string notr="true">/* -----------------------------------------------------------
-   ESTILOS GENERALES (Aplicados a QMainWindow)
-   Asegura un fondo consistente y texto principal.
-   ----------------------------------------------------------- */
-QMainWindow {
-    background-color: #f0f4f8; /* Fondo general claro */
-    color: #333;
-}
-
-/* -----------------------------------------------------------
-   BARRAS Y MARCOS
-   ----------------------------------------------------------- */
-
-/* Barra Superior */
-#frame_superior {
-    background-color: #34495e; /* Oscuro */
-    border-bottom: 2px solid #2c3e50;
-}
-
-/* Marco Lateral (Menú de Navegación CRUD) */
-#frame_lateral {
-    background-color: #2c3e50; /* Azul muy oscuro (Base del menú) */
-    border-right: 2px solid #34495e;
-}
-
-/* -----------------------------------------------------------
-   NAVEGACIÓN LATERAL (Botones CRUD)
-   ----------------------------------------------------------- */
-
-/* Estilo base de los botones de función (Agregar, Actualizar, etc.) */
-#boton_agregar, #boton_actualizar, #boton_eliminar, #boton_buscar, #boton_consultar {
-    background-color: #2c3e50; 
-    color: #ecf0f1;
-    font: 12pt &quot;Arial&quot;;
-    border: none;
-    border-left: 5px solid transparent; /* Indicador apagado */
-    padding: 15px 10px;
-    border-radius: 0;
-    text-align: left;
-}
-
-/* Efecto Hover (al pasar el ratón) */
-#boton_agregar:hover, #boton_actualizar:hover, #boton_eliminar:hover, #boton_buscar:hover, #boton_consultar:hover {
-    background-color: #34495e; /* Tono más claro al pasar */
-    border-left: 5px solid #2ecc71; /* Indicador Verde Esmeralda */
-}
-
-/* Botón de Menú (para alternar la barra lateral) */
-#boton_menu {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-/* -----------------------------------------------------------
-   COMPONENTES DE ENTRADA DE DATOS
-   ----------------------------------------------------------- */
-
-/* Entradas de Texto (QLineEdit) */
-QLineEdit {
-    background-color: #ffffff;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-    padding: 8px;
-    color: #2c3e50;
-    font: 10pt &quot;Arial&quot;;
-}
-QLineEdit:focus {
-    border: 2px solid #3498db; /* Acento Azul al enfocar */
-}
-
-/* -----------------------------------------------------------
-   BOTONES DE ACCIÓN (Dentro de las páginas CRUD)
-   ----------------------------------------------------------- */
-
-/* Botones de Éxito/Primarios (Guardar, Actualizar) */
-#boton_accion_agregar, #boton_accion_actualizar {
-    background-color: #2ecc71; /* Verde Esmeralda */
-    color: white;
-    font: bold 14pt &quot;Arial&quot;;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-}
-#boton_accion_agregar:hover, #boton_accion_actualizar:hover {
-    background-color: #27ae60;
-}
-
-/* Botones de Peligro (Eliminar) */
-#boton_accion_eliminar {
-    background-color: #e74c3c; /* Rojo */
-    color: white;
-    font: bold 14pt &quot;Arial&quot;;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-}
-#boton_accion_eliminar:hover {
-    background-color: #c0392b;
-}
-
-/* Botón de Salir (Regresar al Menú Principal) */
-#boton_salir {
-    background-color: #e74c3c; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 15px;
-}
-#boton_salir:hover { background-color: #c0392b; }
-
-/* -----------------------------------------------------------
-   TABLAS DE DATOS
-   ----------------------------------------------------------- */
-
-/* Contenedor de la Tabla */
+                 <string notr="true">/* === Tablas === */
 QTableWidget {
     background-color: #ffffff;
-    border: 1px solid #bdc3c7;
-    gridline-color: #ecf0f1;
-    color: #333;
-    font: 10pt &quot;Arial&quot;;
-    border-radius: 5px;
+    color: #333333;
+    gridline-color: #e0e0e0;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-family: &quot;Segoe UI Variable&quot;, &quot;Roboto&quot;, &quot;Open Sans&quot;, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    selection-background-color: #e8f0fe; /* azul claro al seleccionar */
+    selection-color: #0078d7;
+    alternate-background-color: #f9fafc; /* filas alternadas */
 }
 
-/* Cabecera de la Tabla */
+/* Cabecera horizontal */
 QHeaderView::section {
-    background-color: #34495e;
-    color: #ffffff;
+    background-color: #f1f3f6;
+    color: #333333;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 15px;
     padding: 8px;
-    border: 1px solid #2c3e50;
-    font: bold 11pt &quot;Arial&quot;;
 }
-/* Filas alternadas para mejor lectura */
-QTableWidget::item:alternate {
-    background-color: #f8f8f8;
+
+/* Cabecera horizontal al pasar el cursor */
+QHeaderView::section:hover {
+    background-color: #e8ecf1;
+}
+
+/* Celdas */
+QTableWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+/* Celda seleccionada */
+QTableWidget::item:selected {
+    background-color: #e8f0fe;
+    color: #0078d7;
+}
+
+/* Bordes del header alineados al contenido */
+QHeaderView {
+    border: none;
+}
+
+/* Barra de desplazamiento dentro de la tabla */
+QTableCornerButton::section {
+    background-color: #f1f3f6;
+    border: 1px solid #dcdcdc;
+}
+
+/* Scrollbars coherentes dentro de tablas */
+QTableWidget QScrollBar:vertical {
+    border: none;
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 4px;
+}
+QTableWidget QScrollBar::handle:vertical {
+    background: #cccccc;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QTableWidget QScrollBar::handle:vertical:hover {
+    background: #0078d7;
+}
+QTableWidget QScrollBar::add-line:vertical,
+QTableWidget QScrollBar::sub-line:vertical {
+    height: 0;
 }</string>
                 </property>
                 <column>
                  <property name="text">
-                  <string>SKU</string>
+                  <string>RFC</string>
                  </property>
                 </column>
                 <column>
                  <property name="text">
-                  <string>Descripción</string>
+                  <string>Nombre</string>
                  </property>
                 </column>
                 <column>
                  <property name="text">
-                  <string>Existencia</string>
+                  <string>Dirección</string>
                  </property>
                 </column>
                 <column>
                  <property name="text">
-                  <string>Precio</string>
+                  <string>Telefono</string>
                  </property>
                 </column>
                </widget>
@@ -1206,7 +1160,7 @@ QTableWidget::item:alternate {
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_11">
                   <property name="text">
-                   <string>Existrencia</string>
+                   <string>Dirección</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1214,13 +1168,20 @@ QTableWidget::item:alternate {
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLineEdit" name="descripcion_eliminar"/>
+                 <widget class="QLineEdit" name="descripcion_eliminar">
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                 <item row="2" column="1">
                  <widget class="QLineEdit" name="existencia_eliminar">
                   <property name="minimumSize">
                    <size>
-                    <width>100</width>
+                    <width>500</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -1236,7 +1197,7 @@ QTableWidget::item:alternate {
                  <widget class="QLineEdit" name="sku_eliminar">
                   <property name="minimumSize">
                    <size>
-                    <width>150</width>
+                    <width>200</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -1254,7 +1215,7 @@ QTableWidget::item:alternate {
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="text">
-                   <string>SKU</string>
+                   <string>RFC</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1264,7 +1225,7 @@ QTableWidget::item:alternate {
                 <item row="1" column="0">
                  <widget class="QLabel" name="label_13">
                   <property name="text">
-                   <string>Descripcion</string>
+                   <string>Nombre</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1274,7 +1235,7 @@ QTableWidget::item:alternate {
                 <item row="3" column="0">
                  <widget class="QLabel" name="label_14">
                   <property name="text">
-                   <string>Precio</string>
+                   <string>Telefono</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1285,7 +1246,7 @@ QTableWidget::item:alternate {
                  <widget class="QLineEdit" name="precio_eliminar">
                   <property name="minimumSize">
                    <size>
-                    <width>80</width>
+                    <width>200</width>
                     <height>0</height>
                    </size>
                   </property>

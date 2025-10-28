@@ -1,23 +1,27 @@
-import pyodbc 
+import pyodbc
 
-class ConexionBd: 
-
+class ConexionBD:
     def __init__(self):
-
-        self.conexion = ""
+        # 1. Llamar a establecerConexionBD en el constructor
+        self.conexion = None
+        self.establecerConexionBD()
 
     def establecerConexionBD(self):
-        
-        try: 
-            self.conexion = pyodbc.connect("DRIVER={SQL Server};SERVER=SALAF008-08\SQLEXPRESS;DATABASE=bdsistema;UID=sa;PWD=Password01")
+        try:
+            self.conexion = pyodbc.connect(
+                'DRIVER={PostgreSQL Unicode};'
+                'SERVER=localhost;'
+                'DATABASE=crupython;'
+                'UID=postgres;'             # <-- Usuario de PostgreSQL (Ejemplo)
+                'PWD=Jarojmro7;'   # <-- Contraseña de PostgreSQL
+            )
+            print("Conexion exitosa")
+        except Exception as ex:
+            print("Error al conectar a la base de datos: " + str(ex))
+            self.conexion = None # Asegurarse de que sea None si falla
 
-            print("Conexión exitosa!!!")
-
-        except Exception as error: 
-
-            print("Error en conexión: "+ str (error))
-
-
+    
     def cerrarConexionBD(self):
-
-        self.conexion.close()
+        if self.conexion:
+            self.conexion.close()
+            self.conexion = None

@@ -1,9 +1,11 @@
 class Cliente:
-    def __init__(self):
-        self.id_cliente = None
-        self.nombre = ""
-        self.apellido = ""
-        self.correo_electronico = ""
-        self.telefono = ""
-        self.direccion = ""
-        self.fecha_registro = None
+    """Clase de modelo para representar a un Cliente."""
+    
+    def __init__(self, idCliente=None, dni_rfc=None, nombre=None, direccion=None, telefono=None):
+        self.idCliente = idCliente
+        self.dni_rfc = dni_rfc
+        self.nombre = nombre
+        self.direccion = direccion
+        self.telefono = telefono
+
+    # No se necesitan métodos adicionales si solo se usa para transportar datos (DTO)

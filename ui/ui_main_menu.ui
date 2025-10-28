@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>635</width>
+    <height>543</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ui_main_menu.ui - Aplicar a QMainWindow de nivel superior */
+
+QMainWindow {
+    background-color: #f0f4f8; /* Fondo general claro */
+    color: #333;
+}
+
+/* --- Marco de Botones (Fondo Oscuro para los botones de navegación) --- */
+/* Aplica esto al contenedor que agrupa boton_productos, boton_clientes, etc. */
+QFrame {
+    background-color: #2c3e50; 
+}
+
+/* --- Botones Principales de Navegación (Productos, Clientes) --- */
+#boton_productos, #boton_clientes {
+    background-color: #34495e; /* Gris más oscuro */
+    color: #ecf0f1;
+    font: bold 14pt &quot;Arial&quot;;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 10px;
+}
+#boton_productos:hover, #boton_clientes:hover {
+    background-color: #2ecc71; /* Verde Esmeralda al pasar el ratón */
+}
+
+/* --- Botón Cerrar Sesión --- */
+#boton_cerrar_sesion {
+    background-color: #e74c3c; /* Rojo (Peligro) */
+    color: white;
+    font: bold 14pt &quot;Arial&quot;;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+}
+#boton_cerrar_sesion:hover {
+    background-color: #c0392b; 
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="boton_cerrar_sesion">
+         <property name="text">
+          <string>Cerrar Sesion</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="boton_productos">
+         <property name="text">
+          <string>Productos </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="boton_clientes">
+         <property name="text">
+          <string>Clientes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionProductos">
+   <property name="text">
+    <string>Productos</string>
+   </property>
+  </action>
+  <action name="actionClientes">
+   <property name="text">
+    <string>Clientes</string>
+   </property>
+  </action>
+  <action name="actionCerrar_Sesion">
+   <property name="text">
+    <string>Cerrar Sesion</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

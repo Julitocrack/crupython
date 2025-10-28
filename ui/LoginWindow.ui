@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>437</width>
+    <height>404</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* -----------------------------------------------------------
+   ESTILOS DE VENTANA DE LOGIN (QDialog)
+   Aplicar al QDialog de nivel superior en LoginWindow.ui
+   ----------------------------------------------------------- */
+
+QDialog {
+    background-color: #2c3e50; /* Azul muy oscuro (Midnight Blue) */
+    border: 3px solid #34495e; /* Borde sutil */
+    border-radius: 12px;
+    color: #ecf0f1; /* Texto blanco grisáceo */
+}
+
+/* -----------------------------------------------------------
+   ETIQUETAS Y TEXTO
+   ----------------------------------------------------------- */
+
+/* Etiquetas de Usuario/Contraseña (QLabel) */
+QLabel {
+    color: #bdc3c7; /* Gris claro */
+    font: 12pt &quot;Arial&quot;;
+    padding: 5px;
+}
+
+/* -----------------------------------------------------------
+   CAMPOS DE ENTRADA (QLineEdit)
+   ----------------------------------------------------------- */
+
+QLineEdit {
+    background-color: #34495e; /* Gris/Azul un poco más claro que el fondo */
+    border: 1px solid #5d6d7e;
+    border-radius: 6px;
+    padding: 12px;
+    color: #ecf0f1; /* Texto blanco */
+    font: 11pt &quot;Arial&quot;;
+}
+QLineEdit:focus {
+    border: 2px solid #2ecc71; /* Acento Verde Esmeralda al enfocar */
+    background-color: #3e5163; /* Fondo ligeramente más claro al enfocar */
+}
+
+/* -----------------------------------------------------------
+   BOTONES
+   ----------------------------------------------------------- */
+
+/* Botón de Ingresar (Asumiendo QPushButton#pushButton) */
+#pushButton {
+    background-color: #2ecc71; /* Verde Esmeralda (Aceptar/Éxito) */
+    color: #2c3e50; /* Texto oscuro para alto contraste */
+    font: bold 15pt &quot;Arial&quot;;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    min-height: 40px;
+}
+#pushButton:hover {
+    background-color: #27ae60;
+}
+#pushButton:pressed {
+    background-color: #1abc9c;
+}
+
+/* Botón de Cancelar/Salir (Si existe como #boton_cancelar) */
+#boton_cancelar {
+    background-color: transparent; /* Transparente para un look limpio */
+    color: #e74c3c; /* Rojo para acción de salir */
+    font: 12pt &quot;Arial&quot;;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    padding: 10px;
+}
+#boton_cancelar:hover {
+    background-color: #c0392b;
+    color: white;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame_5">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>340</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="boton_cancelar">
+        <property name="text">
+         <string>X</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Inicio de sesión</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_2">
+     <property name="styleSheet">
+      <string notr="true">/* LoginWindow.ui - Aplicar a QDialog de nivel superior */
+
+QDialog {
+    background-color: #34495e; /* Fondo de la ventana: Gris/Azul Oscuro */
+    border: 1px solid #2c3e50;
+    border-radius: 10px;
+    color: #ecf0f1; /* Texto blanco grisáceo */
+}
+
+/* Campos de Entrada (Usuario, Contraseña) */
+QLineEdit {
+    background-color: #ecf0f1; /* Blanco para contraste */
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+    font: 11pt &quot;Arial&quot;;
+}
+QLineEdit:focus {
+    border: 2px solid #2ecc71; /* Acento Verde Esmeralda al enfocar */
+}
+
+/* Botón de Ingresar */
+#pushButton {
+    background-color: #2ecc77; /* Verde Esmeralda (Aceptar/Éxito) */
+    color: white;
+    font: bold 14pt &quot;Arial&quot;;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+}
+#pushButton:hover {
+    background-color: #3498db; /* Azul al pasar el ratón */
+}
+#pushButton:pressed {
+    background-color: #2980b9;
+}
+
+/* Etiquetas (QLabel) */
+QLabel {
+    color: #bdc3c7; /* Gris claro */
+    font: 12pt &quot;Arial&quot;;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Usuario</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Contraseña</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="lineEdit"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_2"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Ingresar</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

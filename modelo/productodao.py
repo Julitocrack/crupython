@@ -1,4 +1,4 @@
-from modelo.conexionbd import ConexionBd
+from modelo.conexionbd import ConexionBD # Asumiendo que la clase se llama ConexionBD
 from modelo.producto import Producto 
 
 
@@ -7,7 +7,8 @@ class ProductoDAO:
 
     def __init__(self):
 
-        self.bd = ConexionBd()
+        # Corregido: Uso de ConexionBD con la D mayúscula
+        self.bd = ConexionBD() 
         self.producto = Producto()
 
     def listarProductos(self):
@@ -15,7 +16,8 @@ class ProductoDAO:
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_listar_productos]"
+        # Corregido: Uso de SELECT para llamar a la función que devuelve la tabla
+        sp = "SELECT * FROM sp_listar_productos()" 
         cursor.execute(sp)
         filas = cursor.fetchall()
 
@@ -24,49 +26,41 @@ class ProductoDAO:
 
     def insertarProducto(self):
 
-        # Abrir la conexión a la base de datos  
-
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_insertar_producto] @clave=?, @descripcion=?, @existencia=?, @precio=?"
+        # Corregido: Uso de CALL y solo los placeholders (?)
+        sp = "CALL sp_insertar_producto(?, ?, ?, ?)"
         parametros = (self.producto.clave, self.producto.descripcion, self.producto.existencia, self.producto.precio)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
-
-        # Cerrar la conexión a la base de datos
 
         self.bd.cerrarConexionBD()
 
     def actualizarProducto(self):
 
-        # Abrir la conexión a la base de datos  
-
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_actualizar_producto] @idProducto=?, @clave=?, @descripción=?, @existencia?, @precio=?"
+        # Corregido: Uso de CALL y solo los placeholders (?)
+        sp = "CALL sp_actualizar_producto(?, ?, ?, ?, ?)"
         parametros = (self.producto.idProducto, self.producto.clave, self.producto.descripcion, self.producto.existencia, self.producto.precio)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
-
-        # Cerrar la conexión a la base de datos
 
         self.bd.cerrarConexionBD()
 
     def eliminarProducto(self):
 
-        # Abrir la conexión a la base de datos  
-
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_eliminar_producto] @idProducto=?"
-        parametros = (self.producto.idProducto)
+        # Corregido: Uso de CALL y solo el placeholder (?)
+        sp = "CALL sp_eliminar_producto(?)"
+        # Nota: pyodbc espera una tupla, incluso con un solo elemento
+        parametros = (self.producto.idProducto,) 
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
-
-        # Cerrar la conexión a la base de datos
 
         self.bd.cerrarConexionBD()
 
@@ -76,7 +70,8 @@ class ProductoDAO:
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_contar_productos]"
+        # Corregido: Uso de SELECT para llamar a la función que devuelve un solo valor
+        sp = "SELECT sp_contar_productos()"
         cursor.execute(sp)
         resultado = cursor.fetchone()
 
@@ -89,12 +84,12 @@ class ProductoDAO:
         self.bd.establecerConexionBD()
 
         cursor = self.bd.conexion.cursor()
-        sp = "exec [dbo].[sp_buscar_producto] @clave =?"
-        param = [self.producto.clave]
+        # Corregido: Uso de SELECT para llamar a la función que devuelve la tabla
+        sp = "SELECT * FROM sp_buscar_producto(?)"
+        # Nota: la lista o tupla de parámetros para cursor.execute()
+        param = [self.producto.clave] 
         cursor.execute(sp, param)
         filas = cursor.fetchall()
 
         self.bd.cerrarConexionBD()
         return filas
-
-
