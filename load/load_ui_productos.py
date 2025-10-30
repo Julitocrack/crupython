@@ -66,7 +66,7 @@ class Load_ui_productos(QtWidgets.QMainWindow):
         self.productodao.producto.clave = self.sku_agregar.text()
         self.productodao.producto.descripcion = self.descripcion_agregar.text()
         self.productodao.producto.existencia = int(self.existencia_agregar.text())
-        self.productodao.producto.precio = float(self.precio_agregar.text())
+        self.productodao.producto.precio = float(self.precio_agregar.text().replace(",", "."))
 
         self.productodao.insertarProducto()
 
@@ -97,7 +97,7 @@ class Load_ui_productos(QtWidgets.QMainWindow):
             return
 
         self.productodao.producto.clave = self.sku_actualizar.text()
-        self.productodao.producto.descripcion = self.descripcion_actualizar.text()
+        self.productodao.producto.descripcion = self.deescripcion_actualizar.text()
         self.productodao.producto.existencia = int(self.existencia_actualizar.text())
         self.productodao.producto.precio = float(self.precio_actualizar.text())
 
@@ -105,7 +105,7 @@ class Load_ui_productos(QtWidgets.QMainWindow):
 
         self.mensaje.setText(f"Producto {self.productodao.producto.clave} actualizado correctamente!")
         self.sku_actualizar.setText("")
-        self.descripcion_actualizar.setText("")
+        self.deescripcion_actualizar.setText("")
         self.existencia_actualizar.setText("")
         self.precio_actualizar.setText("")
         self.productodao.producto.idProducto = None # Limpiar ID
@@ -142,13 +142,13 @@ class Load_ui_productos(QtWidgets.QMainWindow):
         
         if len(datos) == 0:
             self.mensaje.setText("SKU no Existe para Actualizar!")
-            self.descripcion_actualizar.setText("")
+            self.deescripcion_actualizar.setText("")
             self.existencia_actualizar.setText("")
             self.precio_actualizar.setText("")
             self.productodao.producto.idProducto = None
         else:
             self.productodao.producto.idProducto = datos[0][0] # Guardar ID para actualizar
-            self.descripcion_actualizar.setText(datos[0][2])
+            self.deescripcion_actualizar.setText(datos[0][2])
             self.existencia_actualizar.setText(str(datos[0][3]))
             self.precio_actualizar.setText(str(datos[0][4]))
             self.mensaje.setText(f"Producto {clave_a_buscar} cargado para actualizar.")
