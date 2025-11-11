@@ -1,31 +1,22 @@
-# En modelo/usuariodao.py
+# # En modelo/usuariodao.py
+# from .usuario import Usuario # El punto (.) significa 'en la misma carpeta'
 
-# Ya no necesitamos importar bcrypt aquí
-from modelo.conexionbd import ConexionBD
-from modelo.usuario import Usuario 
+# from modelo.conexionbd import ConexionBD
+# # ...
 
-class UsuarioDAO:
+# class UsuarioDAO:
 
-    def __init__(self):
-        self.bd = ConexionBD()
-        self.usuario = Usuario()
+#     def __init__(self):
+#         # 💡 QUITA: self.bd = ConexionBD() aquí.
+#         pass # Solo inicializa atributos si es necesario
 
-    def buscarUsuario(self, nombre_usuario):
-        """Busca un usuario por nombre, llamando al procedimiento almacenado."""
-        self.bd.establecerConexionBD()
+#     def buscarUsuario(self, nombre_usuario):
+#         """Busca un usuario por nombre, llamando al procedimiento almacenado de PostgreSQL."""
         
-        cursor = self.bd.conexion.cursor()
+#         # 💡 AHORA INICIALIZA LA CONEXIÓN SÓLO CUANDO ES NECESARIO:
+#         self.bd = ConexionBD() 
+#         self.bd.establecerConexionBD()
         
-        # 💡 CORRECCIÓN CLAVE: Usamos SELECT * FROM para llamar a la función/SP
-        sql = "SELECT * FROM sp_buscar_usuario(?);"
-        parametros = (nombre_usuario,)
-
-        cursor.execute(sql, parametros)
-        fila = cursor.fetchone()
+#         cursor = self.bd.conexion.cursor()
         
-        self.bd.cerrarConexionBD()
-
-        if fila:
-            # Crea y devuelve un objeto Usuario (Índices: 0=id, 1=nombre, 2=hash)
-            return Usuario(idUsuario=fila[0], nombre_usuario=fila[1], password_hash=fila[2])
-        return None
+#         # ... (resto del código de búsqueda se mantiene)
