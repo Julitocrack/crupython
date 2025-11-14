@@ -29,7 +29,7 @@ class ClienteDAO:
 
         cursor = self.bd.conexion.cursor()
         # Uso de CALL (4 parámetros: dni_rfc, nombre, direccion, telefono)
-        sp = "CALL sp_insertar_cliente(?, ?, ?, ?)"
+        sp = "CALL sp_insertar_cliente(%s, %s, %s, %s)"
         parametros = (self.cliente.dni_rfc, self.cliente.nombre, self.cliente.direccion, self.cliente.telefono)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
@@ -42,7 +42,7 @@ class ClienteDAO:
 
         cursor = self.bd.conexion.cursor()
         # Uso de CALL (5 parámetros: idCliente, dni_rfc, nombre, direccion, telefono)
-        sp = "CALL sp_actualizar_cliente(?, ?, ?, ?, ?)"
+        sp = "CALL sp_actualizar_cliente(%s, %s, %s, %s, %s)"
         parametros = (self.cliente.idCliente, self.cliente.dni_rfc, self.cliente.nombre, self.cliente.direccion, self.cliente.telefono)
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
@@ -55,7 +55,7 @@ class ClienteDAO:
 
         cursor = self.bd.conexion.cursor()
         # Uso de CALL (1 parámetro: idCliente)
-        sp = "CALL sp_eliminar_cliente(?)"
+        sp = "CALL sp_eliminar_cliente(%s)"
         parametros = (self.cliente.idCliente,) 
         cursor.execute(sp, parametros)
         self.bd.conexion.commit()
@@ -84,7 +84,7 @@ class ClienteDAO:
 
         cursor = self.bd.conexion.cursor()
         # Uso de SELECT para la función que devuelve la tabla (se busca por dni_rfc)
-        sp = "SELECT * FROM sp_buscar_cliente(?)"
+        sp = "SELECT * FROM sp_buscar_cliente(%s)"
         param = [self.cliente.dni_rfc] 
         cursor.execute(sp, param)
         filas = cursor.fetchall()
