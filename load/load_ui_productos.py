@@ -101,7 +101,7 @@ class Load_ui_productos(QtWidgets.QMainWindow):
         self.productodao.producto.existencia = int(self.existencia_actualizar.text())
         self.productodao.producto.precio = float(self.precio_actualizar.text())
 
-        self.productodao.actualizarProducto() 
+        self.productodao.actualizarProducto()        
 
         self.mensaje.setText(f"Producto {self.productodao.producto.clave} actualizado correctamente!")
         self.sku_actualizar.setText("")
